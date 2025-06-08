@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1846f09666d7b4b40a0d7dcd1dfe30a0
+guid: 63dc3d5bea1d1874aa0e2364bcc59098
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 3
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New Piskel (4)_0
+      name: pressurePlate 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07fd3c8c130054244a4683dd2ea52007
-      internalID: -13756169
+      spriteID: c2ab7aa9f804d4a4f8d738eb1bca7340
+      internalID: -185362551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel (4)_1
+      name: pressurePlate 1_1
       rect:
         serializedVersion: 2
         x: 0
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 005c115e0bd02e645bf265d356709da9
-      internalID: -1579412124
+      spriteID: 3d00f1b4526452346b5ae6c7242afa29
+      internalID: 483071470
       vertices: []
       indices: 
       edges: []
@@ -149,8 +149,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      New Piskel (4)_0: -13756169
-      New Piskel (4)_1: -1579412124
+      pressurePlate 1_0: -185362551
+      pressurePlate 1_1: 483071470
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
