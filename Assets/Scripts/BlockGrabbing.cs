@@ -1,23 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cainos.PixelArtTopDown_Basic;
 
 public class BlockGrabbing : MonoBehaviour
 {
-    public Transform grabPoint;               // точка, куда перемещается блок
-    public float grabRange = 1f;              // радиус поиска блока
-    public LayerMask grabbableLayer;          // слой перетаскиваемых блоков
-    public float directionThreshold = 0.5f;   // насколько строго проверять направление
+    public Transform grabPoint;
+    public float grabRange = 1f;
+    public float grabOffset = 0.1f;
+    public LayerMask grabbableLayer;
+    public float directionThreshold = 0.5f;
+
+    public float normalSpeed = 3f;
+    public float grabSpeed = 1.5f;
 
     private GameObject grabbedBlock;
     private bool isGrabbing = false;
     private Vector2 inputDirection = Vector2.right;
 
     private Rigidbody2D rb;
+    private TopDownCharacterController playerMovement;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerMovement = GetComponent<TopDownCharacterController>();
     }
 
     void Update()
@@ -36,10 +43,14 @@ public class BlockGrabbing : MonoBehaviour
         {
             grabbedBlock.GetComponent<Rigidbody2D>().MovePosition(grabPoint.position);
         }
+
+        UpdatePlayerSpeed();
     }
 
     void UpdateInputDirection()
     {
+        if (isGrabbing) return;
+
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
@@ -47,24 +58,26 @@ public class BlockGrabbing : MonoBehaviour
         if (newDirection != Vector2.zero)
         {
             inputDirection = newDirection;
-
         }
     }
 
     void TryGrab()
     {
-        // ищем все коллайдеры в радиусе
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, grabRange, grabbableLayer);
+        float currentGrabRange = grabRange;
+        float grabDistance = currentGrabRange + grabOffset;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, currentGrabRange, grabbableLayer);
 
         foreach (var hit in hits)
         {
             Vector2 toObject = (hit.transform.position - transform.position).normalized;
 
-            // проверка направления взгляда
             if (Vector2.Dot(inputDirection, toObject) >= directionThreshold)
             {
                 grabbedBlock = hit.gameObject;
-                grabPoint.localPosition = inputDirection * 1f;
+
+                grabPoint.localPosition = inputDirection * grabDistance;
+
                 isGrabbing = true;
 
                 var blockRb = grabbedBlock.GetComponent<Rigidbody2D>();
@@ -83,6 +96,15 @@ public class BlockGrabbing : MonoBehaviour
 
         grabbedBlock = null;
         isGrabbing = false;
+    }
+
+    void UpdatePlayerSpeed()
+    {
+        if (playerMovement != null)
+        {
+            playerMovement.speed = isGrabbing ? grabSpeed : normalSpeed;
+            playerMovement.freezeDirection = isGrabbing;
+        }
     }
 
     void OnDrawGizmosSelected()

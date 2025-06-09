@@ -7,6 +7,7 @@ namespace Cainos.PixelArtTopDown_Basic
     public class TopDownCharacterController : MonoBehaviour
     {
         public float speed;
+        public bool freezeDirection = false;
 
         private Animator animator;
 
@@ -15,30 +16,38 @@ namespace Cainos.PixelArtTopDown_Basic
             animator = GetComponent<Animator>();
         }
 
-
         private void Update()
         {
             Vector2 dir = Vector2.zero;
-            if (Input.GetKey(KeyCode.A))
-            {
-                dir.x = -1;
-                animator.SetInteger("Direction", 3);
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                dir.x = 1;
-                animator.SetInteger("Direction", 2);
-            }
 
-            if (Input.GetKey(KeyCode.W))
+            if (!freezeDirection)
             {
-                dir.y = 1;
-                animator.SetInteger("Direction", 1);
+                if (Input.GetKey(KeyCode.A))
+                {
+                    dir.x = -1;
+                    animator.SetInteger("Direction", 3);
+                }
+                else if (Input.GetKey(KeyCode.D))
+                {
+                    dir.x = 1;
+                    animator.SetInteger("Direction", 2);
+                }
+
+                if (Input.GetKey(KeyCode.W))
+                {
+                    dir.y = 1;
+                    animator.SetInteger("Direction", 1);
+                }
+                else if (Input.GetKey(KeyCode.S))
+                {
+                    dir.y = -1;
+                    animator.SetInteger("Direction", 0);
+                }
             }
-            else if (Input.GetKey(KeyCode.S))
+            else
             {
-                dir.y = -1;
-                animator.SetInteger("Direction", 0);
+                dir.x = Input.GetAxisRaw("Horizontal");
+                dir.y = Input.GetAxisRaw("Vertical");
             }
 
             dir.Normalize();
