@@ -135,6 +135,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props - Wooden Gate 01
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635374, guid: 6a057178eb028e94fb93bf39262ea3e8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 6a057178eb028e94fb93bf39262ea3e8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -193,6 +198,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 428434822}
+    - targetCorrespondingSourceObject: {fileID: 2055102311959635369, guid: 6a057178eb028e94fb93bf39262ea3e8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 428434826}
   m_SourcePrefab: {fileID: 100100000, guid: 6a057178eb028e94fb93bf39262ea3e8, type: 3}
 --- !u!1001 &21191723
 PrefabInstance:
@@ -2623,6 +2632,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5878640}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &428434826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428434818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff8bb42a114dcd4ea5bce5be2c002d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: Level1_Present
 --- !u!1001 &448430822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4419,10 +4441,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5628018141983903116, guid: ef67ba864d1ecc042b5f4cf48455c0a6,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5628018141983903106, guid: ef67ba864d1ecc042b5f4cf48455c0a6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1546122283}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5628018141983903104, guid: ef67ba864d1ecc042b5f4cf48455c0a6,
+        type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 2036081413}
   m_SourcePrefab: {fileID: 100100000, guid: ef67ba864d1ecc042b5f4cf48455c0a6, type: 3}
 --- !u!1001 &1210384755
 PrefabInstance:
@@ -7851,6 +7886,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1951531351}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1546122282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1546122283}
+  m_Layer: 20
+  m_Name: GrabPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1546122283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546122282}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.51, y: 0.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2036081407}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1585269652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8241,6 +8307,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1726945138}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1734943047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5628018141983903104, guid: ef67ba864d1ecc042b5f4cf48455c0a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1195873093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1741257493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8606,6 +8678,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1966840763}
     m_Modifications:
+    - target: {fileID: 2577585254963922476, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922479, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.9975908
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922479, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.7197536
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922479, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0062435865
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922479, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.3629201
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922479, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
       propertyPath: m_IsTrigger
@@ -8615,6 +8712,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props - Crate 01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
@@ -8973,6 +9075,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1195873093}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2036081413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734943047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a44390589e3f942a3bdba6ab15b5b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabPoint: {fileID: 1546122283}
+  grabRange: 1
+  grabbableLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  directionThreshold: 0.5
 --- !u!1001 &2059391015
 PrefabInstance:
   m_ObjectHideFlags: 0
