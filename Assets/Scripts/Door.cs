@@ -8,6 +8,8 @@ public class Door : MonoBehaviour
     [SerializeField] private Sprite closedSprite;
     [SerializeField] private Sprite openSprite;
 
+    public Collider2D transitionCollider;
+
     private SpriteRenderer spriteRenderer;
     private Collider2D col;
 
@@ -15,18 +17,22 @@ public class Door : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         col = GetComponent<Collider2D>();
+
+        // По умолчанию дверь закрыта
+        Close();
     }
 
     public void Open()
     {
-        Debug.Log("Дверь открыта");
-        spriteRenderer.sprite = openSprite;
-        col.isTrigger = true; 
+        if (spriteRenderer != null) spriteRenderer.sprite = openSprite;
+        if (col != null) col.isTrigger = true;
+        if (transitionCollider != null) transitionCollider.enabled = true;
     }
 
     public void Close()
     {
-        spriteRenderer.sprite = closedSprite;
-        col.isTrigger = false;
+        if (spriteRenderer != null) spriteRenderer.sprite = closedSprite;
+        if (col != null) col.isTrigger = false;
+        if (transitionCollider != null) transitionCollider.enabled = false;
     }
 }
