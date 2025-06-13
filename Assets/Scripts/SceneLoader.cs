@@ -12,7 +12,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadNextLevel(int currentLevel)
     {
-        string nextScene = $"Level{currentLevel + 1}_Present";
+        string nextScene = $"Level_{currentLevel + 1}_Present";
         SceneManager.LoadScene(nextScene);
     }
 

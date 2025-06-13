@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransitionTrigger : MonoBehaviour
 {
-    [Tooltip("Level1_Present")]
+    [Tooltip("Level_1_Present")]
     public string nextSceneName;
 
     private bool hasTransitioned = false;
