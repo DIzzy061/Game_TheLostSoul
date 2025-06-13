@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Box
+  - New tag
+  - Environment
   layers:
   - Default
   - TransparentFX
@@ -12,11 +14,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Grabbale
+  - Grabbable
+  - Ramp
   - 
-  - 
-  - 
-  - 
+  - Environment
+  - Player
   - 
   - 
   - 
@@ -50,4 +52,10 @@ TagManager:
     locked: 0
   - name: Layer 3
     uniqueID: 4189426099
+    locked: 0
+  - name: Environment
+    uniqueID: 1139954457
+    locked: 0
+  - name: Player
+    uniqueID: 239479917
     locked: 0
