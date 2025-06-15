@@ -36,24 +36,29 @@ namespace Cainos.PixelArtPlatformer_Dungeon
                 isOpened = value;
 
                 #if UNITY_EDITOR
-                if (Application.isPlaying == false)
+                if (!Application.isPlaying)
                 {
                     EditorUtility.SetDirty(this);
                     EditorSceneManager.MarkSceneDirty(gameObject.scene);
                 }
                 #endif
 
-
                 if (Application.isPlaying)
                 {
                     Animator.SetBool("IsOpened", isOpened);
+
+                    var col = GetComponent<Collider2D>();
+                    if (col != null)
+                        col.enabled = !isOpened;
                 }
                 else
                 {
-                    if(spriteRenderer) spriteRenderer.sprite = isOpened ? spriteOpened : spriteClosed;
+                    if (spriteRenderer)
+                        spriteRenderer.sprite = isOpened ? spriteOpened : spriteClosed;
                 }
             }
         }
+
         [SerializeField,HideInInspector]
         private bool isOpened;
 
