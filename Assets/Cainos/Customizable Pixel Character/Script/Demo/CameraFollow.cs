@@ -1,32 +1,59 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
-//let camera follow target
-namespace Cainos.CustomizablePixelCharacter
+public class CameraFollow : MonoBehaviour
 {
-    public class CameraFollow : MonoBehaviour
+    public Transform target;
+    public float lerpSpeed = 1.0f;
+
+    private Vector3 offset;
+    private Vector3 targetPos;
+
+    void Awake()
     {
-        public float lerpSpeed = 1.0f;
+        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
-        private Vector3 offset;
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
-        private Vector3 targetPos;
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Invoke(nameof(DelayedFindTarget), 0.1f);
+    }
 
-        private void Start()
+    private void DelayedFindTarget()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
         {
-            if (PixelCharacter.instance == null) return;
-
-            offset = transform.position - PixelCharacter.instance.transform.position;
+            SetTarget(player.transform);
+            SnapToTargetImmediately(); // моментально ставим камеру на новую позицию
         }
+    }
 
-        private void Update()
-        {
-            if (PixelCharacter.instance == null) return;
+    void LateUpdate()
+    {
+        if (target == null) return;
 
-            targetPos = PixelCharacter.instance.transform.position + offset;
-            transform.position = Vector3.Lerp(transform.position, targetPos, lerpSpeed * Time.deltaTime);
-        }
+        targetPos = target.position + offset;
+        transform.position = Vector3.Lerp(transform.position, targetPos, lerpSpeed * Time.deltaTime);
+    }
 
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+        if (target != null)
+            offset = transform.position - target.position;
+    }
+
+    public void SnapToTargetImmediately()
+    {
+        if (target == null) return;
+        offset = transform.position - target.position;
+        transform.position = target.position + offset;
     }
 }

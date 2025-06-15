@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 56f29b3681eadd54e9337ae6027a1c61
+guid: 18060618ac49bc14b9d05dd8e025a4fc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TX Dangeon CustomSwitch Animation_0
+      name: Switch turn off animation_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f54d88cd7d8720a42901aa927450c88e
-      internalID: -85563223
+      spriteID: e999adcd25a347b43b38bd967090b84d
+      internalID: 1396507916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Dangeon CustomSwitch Animation_1
+      name: Switch turn off animation_1
       rect:
         serializedVersion: 2
         x: 32
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4fd21eaf5705c542bc2725535b8869d
-      internalID: -1486716547
+      spriteID: 0153f9c0e6893504d85fbd5b9e3fa826
+      internalID: 1528329030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Dangeon CustomSwitch Animation_2
+      name: Switch turn off animation_2
       rect:
         serializedVersion: 2
         x: 64
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6558d2dcbbd5fa47a0b4a9c63e0f8f0
-      internalID: 1441775008
+      spriteID: 90700d93cb2e3974e95a7242e885457b
+      internalID: 1335443361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Dangeon CustomSwitch Animation_3
+      name: Switch turn off animation_3
       rect:
         serializedVersion: 2
         x: 96
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3a55c1c6e393784f9c30d7ff32e4991
-      internalID: 1331556436
+      spriteID: cf62f6a7aa8d2894bb2b297101b037b1
+      internalID: -1934253055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Dangeon CustomSwitch Animation_4
+      name: Switch turn off animation_4
       rect:
         serializedVersion: 2
         x: 0
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f85646174b6f464a86104e1518e4e80
-      internalID: 216675035
+      spriteID: 85a387ec6a1e8fb4c87f09f1802a604c
+      internalID: 1609423690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Dangeon CustomSwitch Animation_5
+      name: Switch turn off animation_5
       rect:
         serializedVersion: 2
         x: 32
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a97036ee1c4f0eb4c9971eebd7d39c42
-      internalID: 471583427
+      spriteID: a32e215f19ace6f4bae8dbd1f5bb13ea
+      internalID: 956002147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Dangeon CustomSwitch Animation_6
+      name: Switch turn off animation_6
       rect:
         serializedVersion: 2
         x: 64
@@ -237,8 +237,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6e9f0cbb6d528943a72b0cbd094420e
-      internalID: -1228478073
+      spriteID: d013bb3fabfbdf94886150ba4b5e6a9d
+      internalID: 1273217607
       vertices: []
       indices: 
       edges: []
@@ -254,13 +254,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TX Dangeon CustomSwitch Animation_0: -85563223
-      TX Dangeon CustomSwitch Animation_1: -1486716547
-      TX Dangeon CustomSwitch Animation_2: 1441775008
-      TX Dangeon CustomSwitch Animation_3: 1331556436
-      TX Dangeon CustomSwitch Animation_4: 216675035
-      TX Dangeon CustomSwitch Animation_5: 471583427
-      TX Dangeon CustomSwitch Animation_6: -1228478073
+      Switch turn off animation_0: 1396507916
+      Switch turn off animation_1: 1528329030
+      Switch turn off animation_2: 1335443361
+      Switch turn off animation_3: -1934253055
+      Switch turn off animation_4: 1609423690
+      Switch turn off animation_5: 956002147
+      Switch turn off animation_6: 1273217607
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

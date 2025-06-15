@@ -1,4 +1,4 @@
-using Cainos.PixelArtPlatformer_Dungeon;
+п»їusing Cainos.PixelArtPlatformer_Dungeon;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class SwitchInteractTrigger : MonoBehaviour
 {
     [Header("Main")]
-    public Switch targetSwitch; // Перетащите сюда основной объект рычага
+    public Switch targetSwitch; // РџРµСЂРµС‚Р°С‰РёС‚Рµ СЃСЋРґР° РѕСЃРЅРѕРІРЅРѕР№ РѕР±СЉРµРєС‚ СЂС‹С‡Р°РіР°
 
     [Header("Visuals")]
     public GameObject interactPrompt;
@@ -17,16 +17,16 @@ public class SwitchInteractTrigger : MonoBehaviour
 
     private void Awake()
     {
-        // Автопоиск если забыли назначить
+        // РђРІС‚РѕРїРѕРёСЃРє РµСЃР»Рё Р·Р°Р±С‹Р»Рё РЅР°Р·РЅР°С‡РёС‚СЊ
         if (targetSwitch == null)
             targetSwitch = GetComponentInParent<Switch>();
 
-        // Настройка коллайдера
+        // РќР°СЃС‚СЂРѕР№РєР° РєРѕР»Р»Р°Р№РґРµСЂР°
         var col = GetComponent<BoxCollider2D>();
         col.isTrigger = true;
         col.size = new Vector2(1.5f, 2f);
 
-        // Поиск PlayerInput на игроке
+        // РџРѕРёСЃРє PlayerInput РЅР° РёРіСЂРѕРєРµ
         playerInput = GameObject.FindWithTag("Player")?.GetComponent<PlayerInput>();
 
         if (interactPrompt)
@@ -35,19 +35,21 @@ public class SwitchInteractTrigger : MonoBehaviour
 
     private void Update()
     {
-        // Два варианта на случай проблем с Input System
+        // Р”РІР° РІР°СЂРёР°РЅС‚Р° РЅР° СЃР»СѓС‡Р°Р№ РїСЂРѕР±Р»РµРј СЃ Input System
         if (playerInRange && (Input.GetKeyDown(KeyCode.E) ||
             (playerInput?.actions["Interact"]?.triggered ?? false)))
         {
             ToggleSwitch();
         }
 
-        // Обновляем позицию подсказки
+        // РћР±РЅРѕРІР»СЏРµРј РїРѕР·РёС†РёСЋ РїРѕРґСЃРєР°Р·РєРё
         if (interactPrompt && interactPrompt.activeSelf)
             interactPrompt.transform.position =
                 Camera.main.WorldToScreenPoint(transform.position + promptOffset);
     }
 
+    public LeverSequenceManager sequenceManager;
+    public int leverId;
     private void ToggleSwitch()
     {
         if (targetSwitch == null)
@@ -56,8 +58,14 @@ public class SwitchInteractTrigger : MonoBehaviour
             return;
         }
 
-        targetSwitch.IsOn = !targetSwitch.IsOn;
+        if (!targetSwitch.IsOn)
+        {
+            targetSwitch.IsOn = true;
+            sequenceManager?.RegisterLeverPress(leverId, targetSwitch);
+        }
     }
+
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

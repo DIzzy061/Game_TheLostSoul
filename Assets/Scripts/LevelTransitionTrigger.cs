@@ -3,18 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransitionTrigger : MonoBehaviour
 {
+    [Tooltip("Название следующей сцены")]
     public string nextSceneName;
-
-    private bool hasTriggered = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!hasTriggered && other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            hasTriggered = true;
-
-            // Можно добавить звук, анимацию, задержку...
-            SceneManager.LoadScene(nextSceneName);
+            GameState.LastPlayerPosition = other.transform.position; 
+            SceneManager.LoadScene(nextSceneName); 
         }
     }
 }
