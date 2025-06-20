@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5886452316635595383}
   - component: {fileID: 8464201467534744740}
   m_Layer: 0
-  m_Name: PF Dungeon Props - Platform Stair Group 01 D
+  m_Name: New_PF Dungeon Props - Platform Stair Group 01 D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -374,7 +374,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -518136775, guid: daa359c07b4be2f47b477ca2857b031a, type: 3}
+  m_Sprite: {fileID: -3209114652670962547, guid: d3a0ad850081f1f44a9ab3cfea90ace4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -458,7 +459,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1365358820, guid: daa359c07b4be2f47b477ca2857b031a, type: 3}
+  m_Sprite: {fileID: 3109350385481482516, guid: d3a0ad850081f1f44a9ab3cfea90ace4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -542,7 +544,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1204608468, guid: daa359c07b4be2f47b477ca2857b031a, type: 3}
+  m_Sprite: {fileID: -4573931221280029954, guid: d3a0ad850081f1f44a9ab3cfea90ace4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -626,7 +629,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1622871513, guid: daa359c07b4be2f47b477ca2857b031a, type: 3}
+  m_Sprite: {fileID: -8609596990722781182, guid: d3a0ad850081f1f44a9ab3cfea90ace4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -710,7 +714,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1204608468, guid: daa359c07b4be2f47b477ca2857b031a, type: 3}
+  m_Sprite: {fileID: -4573931221280029954, guid: d3a0ad850081f1f44a9ab3cfea90ace4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -794,7 +799,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 281146753, guid: daa359c07b4be2f47b477ca2857b031a, type: 3}
+  m_Sprite: {fileID: -2586476522591601026, guid: d3a0ad850081f1f44a9ab3cfea90ace4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -878,7 +884,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -970935804, guid: daa359c07b4be2f47b477ca2857b031a, type: 3}
+  m_Sprite: {fileID: -3805405566582162897, guid: d3a0ad850081f1f44a9ab3cfea90ace4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

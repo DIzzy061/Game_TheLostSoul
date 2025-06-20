@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7474140832124601011}
   - component: {fileID: 9204949581759735285}
   m_Layer: 0
-  m_Name: PF Dungeon Props - Ladder 01 B
+  m_Name: New_PF Dungeon Props - Ladder 01 B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 869066074, guid: daa359c07b4be2f47b477ca2857b031a, type: 3}
+  m_Sprite: {fileID: 8961721956064890068, guid: d3a0ad850081f1f44a9ab3cfea90ace4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -225,7 +226,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2003433988, guid: daa359c07b4be2f47b477ca2857b031a, type: 3}
+  m_Sprite: {fileID: 534718745367034472, guid: d3a0ad850081f1f44a9ab3cfea90ace4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -324,7 +325,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 690904552, guid: daa359c07b4be2f47b477ca2857b031a, type: 3}
+  m_Sprite: {fileID: 5861229221842233303, guid: d3a0ad850081f1f44a9ab3cfea90ace4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -423,7 +425,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1360232574, guid: daa359c07b4be2f47b477ca2857b031a, type: 3}
+  m_Sprite: {fileID: -4112513067908893558, guid: d3a0ad850081f1f44a9ab3cfea90ace4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -521,7 +524,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 739643025, guid: daa359c07b4be2f47b477ca2857b031a, type: 3}
+  m_Sprite: {fileID: 8580069639870261032, guid: d3a0ad850081f1f44a9ab3cfea90ace4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -637,7 +641,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1069290458, guid: daa359c07b4be2f47b477ca2857b031a, type: 3}
+  m_Sprite: {fileID: 4615873951468272637, guid: d3a0ad850081f1f44a9ab3cfea90ace4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

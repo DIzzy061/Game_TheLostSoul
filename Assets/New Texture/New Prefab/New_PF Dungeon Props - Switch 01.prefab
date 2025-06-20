@@ -46,7 +46,7 @@ Animator:
   m_GameObject: {fileID: 390456860282783827}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d35a76c1069c10244bc57d1a2bb882da, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8c56d337e705a9c43bd8f4923c36e591, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -70,9 +70,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  spriteRenderer: {fileID: 0}
-  spriteOn: {fileID: -1141442345, guid: a7318e8615c842b458d2418916245e67, type: 3}
-  spriteOff: {fileID: 1446294333, guid: a7318e8615c842b458d2418916245e67, type: 3}
+  spriteRenderer: {fileID: 7492817326456943536}
+  spriteOn: {fileID: -4553122265855762567, guid: a7318e8615c842b458d2418916245e67,
+    type: 3}
+  spriteOff: {fileID: 2119670486525958911, guid: a7318e8615c842b458d2418916245e67,
+    type: 3}
   isOn: 0
 --- !u!212 &7492817326456943536
 SpriteRenderer:
@@ -94,7 +96,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 19136f9206b85ee43bc3f06b71156f07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,7 +117,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1446294333, guid: a7318e8615c842b458d2418916245e67, type: 3}
+  m_Sprite: {fileID: 2119670486525958911, guid: a7318e8615c842b458d2418916245e67,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

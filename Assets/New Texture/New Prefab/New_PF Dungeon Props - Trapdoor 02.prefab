@@ -73,12 +73,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1109957155, guid: a7318e8615c842b458d2418916245e67, type: 3}
+  m_Sprite: {fileID: -5504403564615946571, guid: a7318e8615c842b458d2418916245e67,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.0625, y: 0.875}
+  m_Size: {x: 1, y: 0.15625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -130,7 +131,7 @@ Animator:
   m_GameObject: {fileID: 6930122694965717508}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fe7f56ab9e1f4ae4abd7a35977168bf9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 04d5bc78bdd82624aa2f9c0bddd702a1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -154,8 +155,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 4142715627474073102}
-  spriteOpened: {fileID: 314339280, guid: a7318e8615c842b458d2418916245e67, type: 3}
-  spriteClosed: {fileID: 1109957155, guid: a7318e8615c842b458d2418916245e67, type: 3}
+  spriteOpened: {fileID: -6543330836706892353, guid: a7318e8615c842b458d2418916245e67,
+    type: 3}
+  spriteClosed: {fileID: -5504403564615946571, guid: a7318e8615c842b458d2418916245e67,
+    type: 3}
   isOpened: 0
 --- !u!61 &6777624555403725528
 BoxCollider2D:
@@ -275,12 +278,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1378495203, guid: d3a0ad850081f1f44a9ab3cfea90ace4, type: 3}
+  m_Sprite: {fileID: -3788196312658610445, guid: d3a0ad850081f1f44a9ab3cfea90ace4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.0625, y: 0.875}
+  m_Size: {x: 1.0625, y: 0.21875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

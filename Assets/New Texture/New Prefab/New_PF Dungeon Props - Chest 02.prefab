@@ -46,9 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d56dac3c2f8a54b83fe41aa886e945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  spriteOpened: {fileID: 0}
-  spriteClosed: {fileID: 0}
+  spriteRenderer: {fileID: 1427049245025195169}
+  spriteOpened: {fileID: -3442104414819464781, guid: a7318e8615c842b458d2418916245e67,
+    type: 3}
+  spriteClosed: {fileID: 4887235036380965585, guid: a7318e8615c842b458d2418916245e67,
+    type: 3}
   isOpened: 0
 --- !u!95 &6491913702539827632
 Animator:
@@ -60,7 +62,7 @@ Animator:
   m_GameObject: {fileID: 6930122694965717508}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 31f2ac33f9f3c5e49a059a6c6ffd79f8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9b51a2f0763dd7844ab94ca64cf23532, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -91,7 +93,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 19136f9206b85ee43bc3f06b71156f07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,7 +114,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1145960990, guid: a7318e8615c842b458d2418916245e67, type: 3}
+  m_Sprite: {fileID: 4887235036380965585, guid: a7318e8615c842b458d2418916245e67,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

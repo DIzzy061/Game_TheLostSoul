@@ -47,8 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 3468687657158743901}
-  spriteOpened: {fileID: 1093551901, guid: a7318e8615c842b458d2418916245e67, type: 3}
-  spriteClosed: {fileID: 1499428555, guid: a7318e8615c842b458d2418916245e67, type: 3}
+  spriteOpened: {fileID: -5784556902443749849, guid: a7318e8615c842b458d2418916245e67,
+    type: 3}
+  spriteClosed: {fileID: -4347782256859782773, guid: a7318e8615c842b458d2418916245e67,
+    type: 3}
   isOpened: 0
 --- !u!95 &6491913702539827632
 Animator:
@@ -60,7 +62,7 @@ Animator:
   m_GameObject: {fileID: 6930122694965717508}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f7330cc1f5c72a84da3240233b32a30b, type: 2}
+  m_Controller: {fileID: 9100000, guid: ce2bfb2c0f4183d47b3e8742a416e282, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -112,7 +114,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1499428555, guid: a7318e8615c842b458d2418916245e67, type: 3}
+  m_Sprite: {fileID: -4347782256859782773, guid: a7318e8615c842b458d2418916245e67,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
