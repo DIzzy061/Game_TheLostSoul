@@ -3,15 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransitionTrigger : MonoBehaviour
 {
-    [Tooltip("Название следующей сцены")]
+    [Tooltip("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ")]
     public string nextSceneName;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            GameState.LastPlayerPosition = other.transform.position; 
-            SceneManager.LoadScene(nextSceneName); 
+            GameState.PreviousSceneName = SceneManager.GetActiveScene().name;
+            GameState.LastPlayerPosition = other.transform.position;
+            SceneManager.LoadScene(nextSceneName);
         }
     }
 }

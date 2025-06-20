@@ -53,6 +53,8 @@ public class SwitchLevelTransitionTrigger : MonoBehaviour
 
         if (!string.IsNullOrEmpty(sceneToLoad))
         {
+            GameState.PreviousSceneName = SceneManager.GetActiveScene().name;
+            GameState.LastPlayerPosition = GameObject.FindWithTag("Player").transform.position;
             SceneManager.LoadScene(sceneToLoad);
         }
         else
