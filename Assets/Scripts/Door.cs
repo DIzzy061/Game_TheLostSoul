@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Door : InteractableObject
+public class Door2DTopDown : InteractableObject
 {
     [SerializeField] private Sprite closedSprite;
     [SerializeField] private Sprite openSprite;

@@ -13,7 +13,7 @@ namespace Cainos.CustomizablePixelCharacter
         {
             get
             {
-                return BoxCollider2D.bounds.center + new Vector3( 0.0f, BoxCollider2D.size.y * 0.5f, 0.0f);
+                return BoxCollider2D.bounds.center + new Vector3(0.0f, BoxCollider2D.size.y * 0.5f, 0.0f);
             }
         }
 

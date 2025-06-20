@@ -6,7 +6,7 @@ public class GameInput : MonoBehaviour
 {
     public static GameInput Instance { get; private set; }
 
-    private PlayerInputActions PlayerInputActions;
+    public PlayerInputActions PlayerInputActions { get; private set; }
 
     private void Awake()
     {
@@ -18,7 +18,6 @@ public class GameInput : MonoBehaviour
     public Vector2 GetMovementVector()
     {
         Vector2 inputVector = PlayerInputActions.Player.Move.ReadValue<Vector2>();
-
         return inputVector;
     }
 }

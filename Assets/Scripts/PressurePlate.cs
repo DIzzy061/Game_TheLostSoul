@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    [SerializeField] private Door door;
+    [SerializeField] private Door2DTopDown door;
     [SerializeField] private Sprite pressedSprite;
     [SerializeField] private Sprite unpressedSprite;
 

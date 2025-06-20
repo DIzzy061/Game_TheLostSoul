@@ -31,7 +31,7 @@ public class BlockGrabbing : MonoBehaviour
     {
         UpdateInputDirection();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (GameInput.Instance.PlayerInputActions.Player.Interact.triggered)
         {
             if (!isGrabbing)
                 TryGrab();
