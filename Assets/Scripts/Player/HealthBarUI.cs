@@ -12,13 +12,17 @@ public class HealthBarUI : MonoBehaviour
             float ratio = targetHealth.currentHealth / targetHealth.maxHealth;
             fillImage.fillAmount = Mathf.Clamp01(ratio);
 
-            // Зафиксировать поворот и масштаб, чтобы не флипался
+            // Keeps the health bar from rotating
             transform.rotation = Quaternion.identity;
 
-            // Принудительно сбрасываем флип (масштаб по X = положительный)
-            Vector3 scale = transform.localScale;
-            scale.x = Mathf.Abs(scale.x);
-            transform.localScale = scale;
+            // Keeps the health bar from flipping
+            if (transform.parent != null)
+            {
+                Vector3 parentScale = transform.parent.localScale;
+                Vector3 localScale = transform.localScale;
+                localScale.x = Mathf.Abs(localScale.x) * Mathf.Sign(parentScale.x);
+                transform.localScale = localScale;
+            }
         }
     }
 

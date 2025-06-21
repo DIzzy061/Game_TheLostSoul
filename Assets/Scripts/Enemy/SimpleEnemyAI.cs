@@ -37,6 +37,10 @@ public class SimpleEnemyAI : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        if (player == null)
+        {
+            Debug.LogError("SimpleEnemyAI: Player not found! Make sure the player object has the 'Player' tag.");
+        }
         animator = GetComponentInChildren<Animator>();
         if (animator == null)
             Debug.LogWarning("Animator не найден!");
@@ -49,17 +53,17 @@ public class SimpleEnemyAI : MonoBehaviour
         float distance = Vector2.Distance(transform.position, player.position);
         Vector2 direction = (player.position - transform.position).normalized;
 
+        // Флип только у корня!
+        if (direction.x != 0)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Sign(direction.x) * Mathf.Abs(scale.x);
+            transform.localScale = scale;
+        }
+
         if (distance > attackRange)
         {
             transform.position += (Vector3)direction * moveSpeed * Time.deltaTime;
-
-            // Флип только у корня!
-            if (direction.x != 0)
-            {
-                Vector3 scale = transform.localScale;
-                scale.x = Mathf.Sign(direction.x) * Mathf.Abs(scale.x);
-                transform.localScale = scale;
-            }
 
             animator.SetFloat("MoveBlend", 1f);
             animator.SetBool("IsMoving", true);
