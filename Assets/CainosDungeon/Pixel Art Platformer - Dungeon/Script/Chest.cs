@@ -57,7 +57,7 @@ namespace Cainos.PixelArtPlatformer_Dungeon
 
         private void Start()
         {
-            Animator.Play(isOpened ? "Opened" : "Closed");
+            //Animator.Play(isOpened ? "Opened" : "Closed");
             IsOpened = isOpened;
         }
 
