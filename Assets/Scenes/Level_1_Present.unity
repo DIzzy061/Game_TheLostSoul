@@ -57352,6 +57352,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 726649114791577718, guid: a0abd49047891b24d826e202a5444125,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 726649114791577718, guid: a0abd49047891b24d826e202a5444125,
+        type: 3}
+      propertyPath: debug_drawLedgePos
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 726649114791577718, guid: a0abd49047891b24d826e202a5444125,
+        type: 3}
+      propertyPath: jumpGravityMutiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1546294774153461753, guid: a0abd49047891b24d826e202a5444125,
         type: 3}
       propertyPath: m_Name
@@ -57375,12 +57390,12 @@ PrefabInstance:
     - target: {fileID: 5230306948048977582, guid: a0abd49047891b24d826e202a5444125,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.97
+      value: -5.984
       objectReference: {fileID: 0}
     - target: {fileID: 5230306948048977582, guid: a0abd49047891b24d826e202a5444125,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.41
+      value: -1.375
       objectReference: {fileID: 0}
     - target: {fileID: 5230306948048977582, guid: a0abd49047891b24d826e202a5444125,
         type: 3}
