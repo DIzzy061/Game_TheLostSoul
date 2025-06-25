@@ -9,6 +9,8 @@ TagManager:
   - Environment
   - SpawnPoint
   - Enemy
+  - Ground
+  - Trap
   layers:
   - Default
   - TransparentFX

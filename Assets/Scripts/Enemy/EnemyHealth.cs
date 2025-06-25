@@ -12,16 +12,16 @@ public class EnemyHealth : Health
         Debug.Log($"{gameObject.name} умер (враг).");
         Destroy(gameObject); // уничтожаем врага
     }
-    private void Start()
-    {
-        base.Start();
-        currentHealth = maxHealth;
+    //private void Start()
+    //{
+    //    base.Start();
+    //    currentHealth = maxHealth;
 
-        // Автоматическая привязка HealthBarUI
-        HealthBarUI bar = GetComponentInChildren<HealthBarUI>();
-        if (bar != null)
-        {
-            bar.targetHealth = this;
-        }
-    }
+    //    // Автоматическая привязка HealthBarUI
+    //    HealthBarUI bar = GetComponentInChildren<HealthBarUI>();
+    //    if (bar != null)
+    //    {
+    //        bar.targetHealth = this;
+    //    }
+    //}
 }
