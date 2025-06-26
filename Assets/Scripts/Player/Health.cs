@@ -9,9 +9,11 @@ public class Health : MonoBehaviour
 
     public HealthBar healthBar;
 
-    [Header("   ")]
-    public float fallHeightThreshold = 5f;
-    public float fallDamage = 25f;
+    [Header("Параметры урона от падения")]
+    public float fallHeightThreshold = 3f;
+    public float minFallDamage = 10f;
+    public float maxFallDamage = 50f;
+    public float maxFallHeight = 10f;
 
     private float highestY;
     private bool isFalling = false;
@@ -45,8 +47,11 @@ public class Health : MonoBehaviour
             float fallDistance = highestY - transform.position.y;
             if (isFalling && fallDistance > fallHeightThreshold)
             {
-                ApplyDamage(fallDamage);
-                Debug.Log($"Падение с высоты {fallDistance:F2}, урон {fallDamage}");
+                float t = Mathf.InverseLerp(fallHeightThreshold, maxFallHeight, fallDistance);
+                float damage = Mathf.Lerp(minFallDamage, maxFallDamage, t);
+
+                ApplyDamage(damage);
+                Debug.Log($"Падение с высоты {fallDistance:F2}, урон {damage:F1}");
             }
             isFalling = false;
             highestY = transform.position.y;
@@ -86,14 +91,33 @@ public class Health : MonoBehaviour
         var input = GetComponent<PixelCharacterInputMouseAndKeyboard>();
         if (input) input.enabled = false;
 
+        var pixelCharacter = GetComponent<PixelCharacter>();
+        if (pixelCharacter)
+        {
+            pixelCharacter.IsEyeCloed = false;
+            pixelCharacter.IsDead = true;
+        }
+
         StartCoroutine(FreezeAndLiftAfterDelay(0.2f));
     }
 
     private System.Collections.IEnumerator FreezeAndLiftAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        transform.position += new Vector3(0, 0.13f, 0);
+        transform.position += new Vector3(0, 0.25f, 0);
         var rb = GetComponent<Rigidbody2D>();
         if (rb) rb.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    private bool IsOnGround()
+    {
+        Collider2D col = GetComponent<Collider2D>();
+        return col != null && col.IsTouchingLayers(LayerMask.GetMask("Ground"));
+    }
+
+    public void CancelFall()
+    {
+        isFalling = false;
+        highestY = transform.position.y;
     }
 }
