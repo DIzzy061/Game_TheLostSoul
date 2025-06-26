@@ -76,5 +76,14 @@ namespace Cainos.PixelArtPlatformer_Dungeon
         {
             IsOn = false;
         }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Arrow"))
+            {
+                IsOn = !IsOn;
+                
+            }
+        }
     }
 }

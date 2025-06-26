@@ -141,8 +141,17 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
+    public InventoryItem GetItem(int slotIndex) => items[slotIndex];
 
-
-
-
+    public void SwapItems(int from, int to)
+    {
+        var temp = items[from];
+        items[from] = items[to];
+        items[to] = temp;
+        UpdateSlotUI(from);
+        UpdateSlotUI(to);
+        // Если один из слотов активный — обновить экипировку
+        if (from == selectedSlot || to == selectedSlot)
+            SelectSlot(selectedSlot);
+    }
 }

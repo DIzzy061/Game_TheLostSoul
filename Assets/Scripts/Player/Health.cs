@@ -99,6 +99,13 @@ public class Health : MonoBehaviour
         }
 
         StartCoroutine(FreezeAndLiftAfterDelay(0.2f));
+        
+        // Вызываем экран смерти
+        DeathScreen deathScreen = FindObjectOfType<DeathScreen>();
+        if (deathScreen != null)
+        {
+            deathScreen.ShowDeathScreen();
+        }
     }
 
     private System.Collections.IEnumerator FreezeAndLiftAfterDelay(float delay)
