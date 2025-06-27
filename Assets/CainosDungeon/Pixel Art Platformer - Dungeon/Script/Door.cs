@@ -33,6 +33,10 @@ namespace Cainos.PixelArtPlatformer_Dungeon
             get { return isOpened; }
             set
             {
+                if (value == true && GetComponent<LeverSequenceManager>() != null)
+                {
+                    return;
+                }
                 isOpened = value;
 
                 #if UNITY_EDITOR
@@ -79,6 +83,32 @@ namespace Cainos.PixelArtPlatformer_Dungeon
         public void Close()
         {
             IsOpened = false;
+        }
+
+        public void ForceOpenFromSequence()
+        {
+            isOpened = true;
+            #if UNITY_EDITOR
+            if (!Application.isPlaying)
+            {
+                EditorUtility.SetDirty(this);
+                EditorSceneManager.MarkSceneDirty(gameObject.scene);
+            }
+            #endif
+
+            if (Application.isPlaying)
+            {
+                Animator.SetBool("IsOpened", isOpened);
+
+                var col = GetComponent<Collider2D>();
+                if (col != null)
+                    col.enabled = !isOpened;
+            }
+            else
+            {
+                if (spriteRenderer)
+                    spriteRenderer.sprite = isOpened ? spriteOpened : spriteClosed;
+            }
         }
     }
 }

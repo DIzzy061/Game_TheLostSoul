@@ -29,6 +29,8 @@ public class SwitchLevelTransitionTrigger : MonoBehaviour
 
         if (interactPrompt)
             interactPrompt.SetActive(false);
+            
+        Debug.Log($"[{gameObject.name}] SwitchLevelTransitionTrigger инициализирован. SceneToLoad: {sceneToLoad}");
     }
 
     private void Update()
@@ -36,6 +38,7 @@ public class SwitchLevelTransitionTrigger : MonoBehaviour
         if (playerInRange && (Input.GetKeyDown(KeyCode.E) ||
             (playerInput?.actions["Interact"]?.triggered ?? false)))
         {
+            Debug.Log($"[{gameObject.name}] Кнопка взаимодействия нажата!");
             TriggerSceneChange();
         }
 
@@ -46,20 +49,43 @@ public class SwitchLevelTransitionTrigger : MonoBehaviour
 
     private void TriggerSceneChange()
     {
+        Debug.Log($"[{gameObject.name}] TriggerSceneChange вызван");
+        
         if (targetSwitch != null)
         {
+            Debug.Log($"[{gameObject.name}] Переключаем TargetSwitch");
             targetSwitch.IsOn = !targetSwitch.IsOn;
         }
 
         if (!string.IsNullOrEmpty(sceneToLoad))
         {
+            Debug.Log($"[{gameObject.name}] Загружаем сцену: {sceneToLoad}");
+            
+            bool sceneExists = false;
+            for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+            {
+                string scenePath = SceneUtility.GetScenePathByBuildIndex(i);
+                string sceneNameFromPath = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+                if (sceneNameFromPath == sceneToLoad)
+                {
+                    sceneExists = true;
+                    break;
+                }
+            }
+            
+            if (!sceneExists)
+            {
+                Debug.LogError($"[{gameObject.name}] Сцена '{sceneToLoad}' не найдена в Build Settings!");
+                return;
+            }
+            
             GameState.PreviousSceneName = SceneManager.GetActiveScene().name;
             GameState.LastPlayerPosition = GameObject.FindWithTag("Player").transform.position;
             SceneManager.LoadScene(sceneToLoad);
         }
         else
         {
-            Debug.LogWarning("Scene name not assigned in SwitchLevelTransitionTrigger.");
+            Debug.LogWarning($"[{gameObject.name}] Scene name not assigned in SwitchLevelTransitionTrigger.");
         }
     }
 
@@ -67,6 +93,7 @@ public class SwitchLevelTransitionTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log($"[{gameObject.name}] Игрок вошел в зону триггера");
             playerInRange = true;
             if (interactPrompt) interactPrompt.SetActive(true);
         }
@@ -76,6 +103,7 @@ public class SwitchLevelTransitionTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log($"[{gameObject.name}] Игрок вышел из зоны триггера");
             playerInRange = false;
             if (interactPrompt) interactPrompt.SetActive(false);
         }

@@ -1,13 +1,19 @@
 using UnityEngine;
+using Cainos.CustomizablePixelCharacter;
+using System.Collections;
 
 public class Health : MonoBehaviour
 {
     public float maxHealth = 100f;
     public float currentHealth;
 
-    [Header("Порог урона от падения")]
-    public float fallHeightThreshold = 5f;
-    public float fallDamage = 25f;
+    public HealthBar healthBar;
+
+    [Header("РџР°СЂР°РјРµС‚СЂС‹ СѓСЂРѕРЅР° РѕС‚ РїР°РґРµРЅРёСЏ")]
+    public float fallHeightThreshold = 3f;
+    public float minFallDamage = 10f;
+    public float maxFallDamage = 50f;
+    public float maxFallHeight = 10f;
 
     private float highestY;
     private bool isFalling = false;
@@ -19,6 +25,8 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
         highestY = transform.position.y;
+        if (healthBar != null)
+            healthBar.SetHealth(1f);
     }
 
     protected virtual void Update()
@@ -30,18 +38,23 @@ public class Health : MonoBehaviour
 
         if (rb.velocity.y < -0.1f)
             isFalling = true;
+    }
 
-        if (isFalling && Mathf.Abs(rb.velocity.y) < 0.01f)
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Ground"))
         {
-            float fallDistance = highestY - currentY;
-            if (fallDistance > fallHeightThreshold)
+            float fallDistance = highestY - transform.position.y;
+            if (isFalling && fallDistance > fallHeightThreshold)
             {
-                ApplyDamage(fallDamage);
-                Debug.Log($"Падение с высоты {fallDistance:F2}, получен урон {fallDamage}");
-            }
+                float t = Mathf.InverseLerp(fallHeightThreshold, maxFallHeight, fallDistance);
+                float damage = Mathf.Lerp(minFallDamage, maxFallDamage, t);
 
+                ApplyDamage(damage);
+                Debug.Log($"РџР°РґРµРЅРёРµ СЃ РІС‹СЃРѕС‚С‹ {fallDistance:F2}, СѓСЂРѕРЅ {damage:F1}");
+            }
             isFalling = false;
-            highestY = currentY;
+            highestY = transform.position.y;
         }
     }
 
@@ -49,6 +62,15 @@ public class Health : MonoBehaviour
     {
         currentHealth -= amount;
         Debug.Log($"HP: {currentHealth}");
+
+        var animator = GetComponentInChildren<Animator>();
+        if (animator)
+        {
+            animator.SetTrigger("InjuredFront");
+        }
+
+        if (healthBar != null)
+            healthBar.SetHealth(currentHealth / maxHealth);
 
         if (currentHealth <= 0)
         {
@@ -58,7 +80,51 @@ public class Health : MonoBehaviour
 
     protected virtual void Die()
     {
-        Debug.Log("Персонаж умер");
-        gameObject.SetActive(false);
+        Debug.Log("РџРµСЂСЃРѕРЅР°Р¶ РїРѕРіРёР±!");
+        var animator = GetComponentInChildren<Animator>();
+        if (animator)
+        {
+            animator.SetBool("IsDead", true);
+        }
+        var controller = GetComponent<PixelCharacterController>();
+        if (controller) controller.enabled = false;
+        var input = GetComponent<PixelCharacterInputMouseAndKeyboard>();
+        if (input) input.enabled = false;
+
+        var pixelCharacter = GetComponent<PixelCharacter>();
+        if (pixelCharacter)
+        {
+            pixelCharacter.IsEyeCloed = false;
+            pixelCharacter.IsDead = true;
+        }
+
+        StartCoroutine(FreezeAndLiftAfterDelay(0.2f));
+        
+        // Р’С‹Р·С‹РІР°РµРј СЌРєСЂР°РЅ СЃРјРµСЂС‚Рё
+        DeathScreen deathScreen = FindObjectOfType<DeathScreen>();
+        if (deathScreen != null)
+        {
+            deathScreen.ShowDeathScreen();
+        }
+    }
+
+    private System.Collections.IEnumerator FreezeAndLiftAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        transform.position += new Vector3(0, 0.25f, 0);
+        var rb = GetComponent<Rigidbody2D>();
+        if (rb) rb.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    private bool IsOnGround()
+    {
+        Collider2D col = GetComponent<Collider2D>();
+        return col != null && col.IsTouchingLayers(LayerMask.GetMask("Ground"));
+    }
+
+    public void CancelFall()
+    {
+        isFalling = false;
+        highestY = transform.position.y;
     }
 }

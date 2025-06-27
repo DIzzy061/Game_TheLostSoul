@@ -34,7 +34,7 @@ public class LeverSequenceManager : MonoBehaviour
         }
 
         if (targetDoor != null)
-            targetDoor.IsOpened = true;
+            targetDoor.ForceOpenFromSequence();
     }
 
     private void ResetAll()

@@ -404,10 +404,14 @@ namespace Cainos.CustomizablePixelCharacter
             if (projectilePrefab == null) return;
             if (isDrawingBow == false) return;
 
+            if (Quiver.Instance != null && !Quiver.Instance.TryUseArrow())
+            {
+                return;
+            }
+
             projectile = Instantiate(projectilePrefab, character.rigHandL).GetComponent<Projectile>();
             projectile.transform.localPosition = Vector3.zero;
             projectile.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 90.0f);
-            //projectile.transform.localRotation = Quaternion.identity;
 
             IsArrowDrawn = true;
         }
@@ -1024,7 +1028,7 @@ namespace Cainos.CustomizablePixelCharacter
             }
             //in air, set limit to x and y direction separately
             else
-            if ( IsInAir)
+            if (IsInAir)
             {
                 float speedX = Mathf.Abs(velocity.x);
                 if (speedX > max) speedX = Mathf.MoveTowards(speedX, max, dragAcc * Time.fixedDeltaTime);
@@ -1094,7 +1098,7 @@ namespace Cainos.CustomizablePixelCharacter
 
         public void Dash()
         {
-            if (dashEnabled == false || isDead || isPointingAtTarget || isPointingAtTarget )
+            if (dashEnabled == false || isDead || isPointingAtTarget || isPointingAtTarget)
             {
                 isDashing = false;
                 return;
@@ -1189,7 +1193,7 @@ namespace Cainos.CustomizablePixelCharacter
             }
 
             if (dodgeEnabled == false) return;
-            if (isCrawling || isClimbingLedge || isEnteringLadder || isExitingLadder ) return;
+            if (isCrawling || isClimbingLedge || isEnteringLadder || isExitingLadder) return;
 
 
             if (IsDodging == false && dodgeCdTimer > 0.01f)
@@ -1215,7 +1219,7 @@ namespace Cainos.CustomizablePixelCharacter
         private void DodgeUpdate()
         {
             //snap character to ground better when dodging
-            if ( isDodging && airTimer > 0.01f)
+            if (isDodging && airTimer > 0.01f)
             {
                 velocity.y -= 25.0f * Time.fixedDeltaTime;
             }
@@ -1272,7 +1276,7 @@ namespace Cainos.CustomizablePixelCharacter
             if (jumpEnabled == false || IsDead) return;
 
             //disable jump while crawling or dodging
-            if (isCrawling || isCrawlEntering || isCrawlExiting || isDodging )
+            if (isCrawling || isCrawlEntering || isCrawlExiting || isDodging)
             {
                 jumpCdTimer = 0.0f;
                 return;
@@ -1327,7 +1331,7 @@ namespace Cainos.CustomizablePixelCharacter
                 }
 
                 //jump while entering or exiting climbing 
-                if ( isEnteringLadder || isExitingLadder)
+                if (isEnteringLadder || isExitingLadder)
                 {
                     IsGrounded = false;
                     isEnteringLadder = false;
@@ -1345,7 +1349,7 @@ namespace Cainos.CustomizablePixelCharacter
                 }
 
                 //jump while climbing ledge
-                if ( isClimbingLedge || ledgeClimbLocked )
+                if (isClimbingLedge || ledgeClimbLocked)
                 {
                     IsGrounded = false;
                     isClimbingLedge = false;
@@ -1391,7 +1395,7 @@ namespace Cainos.CustomizablePixelCharacter
 
             //jumping up with continuous jump input
             //set jump gravity so that the longer the jump key is pressed, the higher the character can jump
-            if ( IsInAir )
+            if (IsInAir)
             {
                 if (inputJump && velocity.y > 0)
                 {
@@ -1436,6 +1440,10 @@ namespace Cainos.CustomizablePixelCharacter
                 //set ladder climb z pos
                 if (isClimbingLadder)
                 {
+                    // Сброс падения при начале лазания по лестнице
+                    var health = GetComponent<Health>();
+                    if (health != null) health.CancelFall();
+
                     Vector3 pos = transform.position;
                     ladderExitPosZ = pos.z;
                     pos.z = ladder.ClimbPos.z;
@@ -1492,7 +1500,7 @@ namespace Cainos.CustomizablePixelCharacter
             velocity.x = 0.0f;
             if (Mathf.Abs(inputMove.y) > MOVE_THRESHOLD)
             {
-                velocity.y = ( inputRun ? ladderClimbSpeedFast : ladderClimbSpeed) * Mathf.Sign(inputMove.y);
+                velocity.y = (inputRun ? ladderClimbSpeedFast : ladderClimbSpeed) * Mathf.Sign(inputMove.y);
                 climbingSpeedMul = (velocity.y / ladderClimbSpeed);
             }
             else
@@ -1515,7 +1523,7 @@ namespace Cainos.CustomizablePixelCharacter
 
             //reach top bottom of the ladder
             //using 2 pixel size as tolerance
-            hasReachedLadderBottom = (Mathf.Abs (BottomPos.y - ladder.BottomPos.y) < PIXEL_SIZE * 2.0f);
+            hasReachedLadderBottom = (Mathf.Abs(BottomPos.y - ladder.BottomPos.y) < PIXEL_SIZE * 2.0f);
             if (hasReachedLadderBottom)
             {
                 if (velocity.y < 0.0f)
@@ -1570,7 +1578,7 @@ namespace Cainos.CustomizablePixelCharacter
 
             //special case, from ladder to air
             //reach ladder bottom, not grounded, down input persist more than 0.5s
-            if ( hasReachedLadderBottom && isGrounded == false && inputMove.y < -MOVE_THRESHOLD )
+            if (hasReachedLadderBottom && isGrounded == false && inputMove.y < -MOVE_THRESHOLD)
             {
                 ladderToAirTimer += Time.deltaTime;
                 if (ladderToAirTimer > 0.5f)
@@ -1680,7 +1688,7 @@ namespace Cainos.CustomizablePixelCharacter
             else
             {
 
-                if (Mathf.Abs(inputMove.x) < MOVE_THRESHOLD && ledgeClimbLocked == false )
+                if (Mathf.Abs(inputMove.x) < MOVE_THRESHOLD && ledgeClimbLocked == false)
                 {
                     isClimbingLedge = false;
                     return;
@@ -1692,7 +1700,7 @@ namespace Cainos.CustomizablePixelCharacter
                     return;
                 }
 
-                if ( transform.position.y > ledgePos.y )
+                if (transform.position.y > ledgePos.y)
                 {
                     isClimbingLedge = false;
                     return;
@@ -1702,11 +1710,11 @@ namespace Cainos.CustomizablePixelCharacter
 
         private void LedgeClimb()
         {
-            if ( isClimbingLedge)
+            if (isClimbingLedge)
             {
                 //update ledge pos and character pos in case the ledge collider is moving
-                RaycastHit2D hit = Raycast(ledgePos + new Vector2 ( 0.0f, PIXEL_SIZE), Vector2.down, PIXEL_SIZE * 4.0f, true);
-                if ( hit.collider )
+                RaycastHit2D hit = Raycast(ledgePos + new Vector2(0.0f, PIXEL_SIZE), Vector2.down, PIXEL_SIZE * 4.0f, true);
+                if (hit.collider)
                 {
                     transform.position += (Vector3)(hit.point - ledgePos);
 
@@ -1717,7 +1725,7 @@ namespace Cainos.CustomizablePixelCharacter
                 else
                 {
                     isClimbingLedge = false;
-                }    
+                }
             }
         }
 
@@ -1760,7 +1768,7 @@ namespace Cainos.CustomizablePixelCharacter
         {
             get
             {
-                return GroundRaycastPosM + new Vector3( (isCrawling ? 15 * PIXEL_SIZE : 6 * PIXEL_SIZE) * facingDir , 0.0f, 0.0f);
+                return GroundRaycastPosM + new Vector3((isCrawling ? 15 * PIXEL_SIZE : 6 * PIXEL_SIZE) * facingDir, 0.0f, 0.0f);
             }
         }
         private Vector3 GroundRaycastPosM
@@ -1837,14 +1845,14 @@ namespace Cainos.CustomizablePixelCharacter
             //check is on platform
             bool onPlatform = false;
             if (standingColliders.Count > 0) onPlatform = standingColliders[0].gameObject.TryGetComponent<Platform>(out _);
-            for ( int i = 1; i < standingColliders.Count;i++ )
+            for (int i = 1; i < standingColliders.Count; i++)
             {
                 onPlatform = onPlatform && standingColliders[i].gameObject.TryGetComponent<Platform>(out _);
             }
             isStandingOnPlatform = onPlatform;
 
             //check grounded
-            if (hit && groundYPos >= transform.position.y - PIXEL_SIZE )
+            if (hit && groundYPos >= transform.position.y - PIXEL_SIZE)
             {
                 IsGrounded = true;
 
@@ -1916,9 +1924,9 @@ namespace Cainos.CustomizablePixelCharacter
 
             //apply force to standing rigidbody
             Vector2 force = CHARACTER_WEIGHT * Physics2D.gravity / standingColliders.Count;
-            for ( int i = 0; i < standingColliders.Count; i++ )
+            for (int i = 0; i < standingColliders.Count; i++)
             {
-                if ( standingColliders[i].attachedRigidbody) standingColliders[i].attachedRigidbody.AddForceAtPosition(force, standingPosList[i]);
+                if (standingColliders[i].attachedRigidbody) standingColliders[i].attachedRigidbody.AddForceAtPosition(force, standingPosList[i]);
             }
         }
 
@@ -1976,14 +1984,14 @@ namespace Cainos.CustomizablePixelCharacter
             }
 
             //ladder
-            if ( isClimbingLadder || isEnteringLadder || isExitingLadder)
+            if (isClimbingLadder || isEnteringLadder || isExitingLadder)
             {
                 if (ladder) facingDir = -(int)ladder.direction;
                 return;
             }
 
             //move
-            if (Mathf.Abs(inputMove.x) > MOVE_THRESHOLD )
+            if (Mathf.Abs(inputMove.x) > MOVE_THRESHOLD)
             {
                 facingDir = Mathf.RoundToInt(Mathf.Sign(inputMove.x));
                 return;
@@ -2010,7 +2018,7 @@ namespace Cainos.CustomizablePixelCharacter
                 Vector2 size = COLLIDER_SIZE;
                 Vector2 offset = COLLIDER_OFFSET;
 
-                if (isCrawling || isDodging )
+                if (isCrawling || isDodging)
                 {
                     size = COLLIDER_SIZE_CRAWL;
                     offset = COLLIDER_OFFSET_CRAWL;
@@ -2028,7 +2036,7 @@ namespace Cainos.CustomizablePixelCharacter
                 colliderDirty = false;
             }
 
-            if ( isCrawling)
+            if (isCrawling)
             {
                 Vector2 offset = COLLIDER_OFFSET_CRAWL;
                 offset.x *= facingDir;
@@ -2043,7 +2051,7 @@ namespace Cainos.CustomizablePixelCharacter
         private void ApplyRootMotion()
         {
             //root motion from dodging
-            if ( isDodging)
+            if (isDodging)
             {
                 if (Mathf.Abs(rootMotionReceiver.rootMotionVel.magnitude) > MOVE_THRESHOLD)
                 {
@@ -2053,7 +2061,7 @@ namespace Cainos.CustomizablePixelCharacter
             }
 
             //root motion form ladder entering & exiting, ledge cimbing
-            if ( isExitingLadder || isExitingLadder || isClimbingLedge  )
+            if (isExitingLadder || isExitingLadder || isClimbingLedge)
             {
                 if (Mathf.Abs(rootMotionReceiver.rootMotionVel.magnitude) > MOVE_THRESHOLD) velocity = rootMotionReceiver.rootMotionVel;
             }
@@ -2078,14 +2086,14 @@ namespace Cainos.CustomizablePixelCharacter
             animator.SetFloat("ClimbingSpeedMul", climbingSpeedMul);
 
             animator.SetBool("IsClimbingLedge", isClimbingLedge);
-            if ( isClimbingLedge) animator.SetFloat("LedgeHeight", ledgeHeight);
+            if (isClimbingLedge) animator.SetFloat("LedgeHeight", ledgeHeight);
 
             animator.SetBool("IsEnteringLadder", isEnteringLadder);
             animator.SetBool("IsExitingLadder", isExitingLadder);
-            if ( isEnteringLadder ) animator.SetFloat("LadderEnterHeight", ladderEnterHeight);
-            if ( isExitingLadder) animator.SetFloat("LadderExitHeight", ladderExitHeight);
+            if (isEnteringLadder) animator.SetFloat("LadderEnterHeight", ladderEnterHeight);
+            if (isExitingLadder) animator.SetFloat("LadderExitHeight", ladderExitHeight);
 
-            character.Facing = (PixelCharacter.FacingType) facingDir;
+            character.Facing = (PixelCharacter.FacingType)facingDir;
         }
 
         #endregion
@@ -2191,9 +2199,9 @@ namespace Cainos.CustomizablePixelCharacter
         #region - EVENT HANDLING -
 
         //footstep event has a string parameter telling which animation this event is from.
-        public void OnFootstep( AnimationEvent evt )
+        public void OnFootstep(AnimationEvent evt)
         {
-            if (airTimer > 0.1f ) return;
+            if (airTimer > 0.1f) return;
 
             if (evt.animatorClipInfo.weight < 0.49f) return;
 
@@ -2205,13 +2213,13 @@ namespace Cainos.CustomizablePixelCharacter
 
             if (IsCrawling)
             {
-                if (evt.stringParameter == "Crawl" ) onFootstep.Invoke();
+                if (evt.stringParameter == "Crawl") onFootstep.Invoke();
                 return;
             }
 
-            if ( IsCrouching )
+            if (IsCrouching)
             {
-                if (evt.stringParameter == "Crouch" ) onFootstep.Invoke();
+                if (evt.stringParameter == "Crouch") onFootstep.Invoke();
                 return;
             }
 
@@ -2236,8 +2244,8 @@ namespace Cainos.CustomizablePixelCharacter
                 return;
             }
         }
-        
-        public void OnAttackStart ()
+
+        public void OnAttackStart()
         {
             onAttackStart.Invoke();
         }
@@ -2333,12 +2341,12 @@ namespace Cainos.CustomizablePixelCharacter
             }
 
         }
-        #endif
+#endif
         #endregion
 
         #region - MISC & HELPER FUNCTIONS -
-        private RaycastHit2D Raycast( Vector2 origin, Vector2 direction, float distance, bool ignorePlatform = false , bool skipIgnoredPlatforms = true )
-        {        
+        private RaycastHit2D Raycast(Vector2 origin, Vector2 direction, float distance, bool ignorePlatform = false, bool skipIgnoredPlatforms = true)
+        {
             RaycastHit2D raycastHit = new RaycastHit2D()
             {
                 point = origin + direction * distance
@@ -2359,8 +2367,8 @@ namespace Cainos.CustomizablePixelCharacter
                     if (ignorePlatform) continue;
                     if (Vector2.Dot(hits[i].transform.up, hits[i].normal) < 0) continue;
                 }
-                if ( skipIgnoredPlatforms && ignoredPlatforms.Contains(hits[i].collider)) continue;
-                if ( Vector3.Distance( hits[i].point, origin ) < Vector3.Distance(raycastHit.point, origin))
+                if (skipIgnoredPlatforms && ignoredPlatforms.Contains(hits[i].collider)) continue;
+                if (Vector3.Distance(hits[i].point, origin) < Vector3.Distance(raycastHit.point, origin))
                 {
                     raycastHit = hits[i];
                 }
@@ -2369,7 +2377,7 @@ namespace Cainos.CustomizablePixelCharacter
             return raycastHit;
         }
 
-        private Vector2 RotateVector2( Vector2 v, float d)
+        private Vector2 RotateVector2(Vector2 v, float d)
         {
             float sin = Mathf.Sin(d * Mathf.Deg2Rad);
             float cos = Mathf.Cos(d * Mathf.Deg2Rad);

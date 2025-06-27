@@ -1,0 +1,488 @@
+fileFormatVersion: 2
+guid: 981c408910207904bb438299ca8fc171
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Break 01
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 904
+        width: 179
+        height: 113
+      alignment: 9
+      pivot: {x: 0.49720672, y: 0.49557522}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 053dadb5f246152c0800000000000000
+      internalID: -4444661202670660784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Window 01 A
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 840
+        width: 97
+        height: 49
+      alignment: 9
+      pivot: {x: 0.49484536, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d59ea0a1a71fedc60800000000000000
+      internalID: 7844973107651209565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Dent 01 A
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 776
+        width: 98
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab9424d3ae03d41c0800000000000000
+      internalID: -4517901068574504518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Dent 05
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 648
+        width: 192
+        height: 113
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49557522}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69b2f12fc05bd03e0800000000000000
+      internalID: -2085811985196307562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Break 02
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 920
+        width: 177
+        height: 97
+      alignment: 9
+      pivot: {x: 0.49717513, y: 0.49484536}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11f6a5cedad17ef80800000000000000
+      internalID: -8077454773833797871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Window 01 B
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 840
+        width: 97
+        height: 49
+      alignment: 9
+      pivot: {x: 0.49484536, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b66b72e5b84e46df0800000000000000
+      internalID: -187773997211470229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Dent 04
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 520
+        width: 147
+        height: 97
+      alignment: 9
+      pivot: {x: 0.49659863, y: 0.49484536}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07963c5ed4e547de0800000000000000
+      internalID: -1336339500761912976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Outfall 01
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 824
+        width: 97
+        height: 81
+      alignment: 9
+      pivot: {x: 0.49484536, y: 0.49382716}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 492839dfe9086e3b0800000000000000
+      internalID: -5483554075929509228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Dent 06
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 520
+        width: 242
+        height: 145
+      alignment: 9
+      pivot: {x: 0.49586776, y: 0.49655172}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa852ccb76bc4f080800000000000000
+      internalID: -9154468496128452438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Break 03
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 888
+        width: 178
+        height: 129
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49612403}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a6014f28601e4ac0800000000000000
+      internalID: -3869136990209243480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Dent 01 B
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 776
+        width: 98
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48979592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bf5c823b6adaa290800000000000000
+      internalID: -7878244444186845259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Prison 01 A
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 25
+        width: 162
+        height: 81
+      alignment: 9
+      pivot: {x: 0.5, y: 0.074074075}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09292a602e1fd9cd0800000000000000
+      internalID: -2549615860945612144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Prison 01 B
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 25
+        width: 161
+        height: 81
+      alignment: 9
+      pivot: {x: 0.49689442, y: 0.074074075}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef114df74218ff880800000000000000
+      internalID: -8574993171726724610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Door 01
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 25
+        width: 98
+        height: 97
+      alignment: 9
+      pivot: {x: 0.53061223, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f3e8ca32a6b8b040800000000000000
+      internalID: 4663678222029349878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Dent 02 A
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 744
+        width: 113
+        height: 65
+      alignment: 9
+      pivot: {x: 0.49557522, y: 0.4923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a145249d84bb35dc0800000000000000
+      internalID: -3651368951310298086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Dent 02 B
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 744
+        width: 113
+        height: 65
+      alignment: 9
+      pivot: {x: 0.49557522, y: 0.4923077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4de2c6b248e26a5b0800000000000000
+      internalID: -5357543561511555372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEW_TX Dungeon Wall Deco - Dent 03
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 744
+        width: 129
+        height: 81
+      alignment: 9
+      pivot: {x: 0.49612403, y: 0.49382716}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27bfb065cb28537b0800000000000000
+      internalID: -5245142445593986190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      NEW_TX Dungeon Wall Deco - Break 01: -4444661202670660784
+      NEW_TX Dungeon Wall Deco - Break 02: -8077454773833797871
+      NEW_TX Dungeon Wall Deco - Break 03: -3869136990209243480
+      NEW_TX Dungeon Wall Deco - Dent 01 A: -4517901068574504518
+      NEW_TX Dungeon Wall Deco - Dent 01 B: -7878244444186845259
+      NEW_TX Dungeon Wall Deco - Dent 02 A: -3651368951310298086
+      NEW_TX Dungeon Wall Deco - Dent 02 B: -5357543561511555372
+      NEW_TX Dungeon Wall Deco - Dent 03: -5245142445593986190
+      NEW_TX Dungeon Wall Deco - Dent 04: -1336339500761912976
+      NEW_TX Dungeon Wall Deco - Dent 05: -2085811985196307562
+      NEW_TX Dungeon Wall Deco - Dent 06: -9154468496128452438
+      NEW_TX Dungeon Wall Deco - Door 01: 4663678222029349878
+      NEW_TX Dungeon Wall Deco - Outfall 01: -5483554075929509228
+      NEW_TX Dungeon Wall Deco - Prison 01 A: -2549615860945612144
+      NEW_TX Dungeon Wall Deco - Prison 01 B: -8574993171726724610
+      NEW_TX Dungeon Wall Deco - Window 01 A: 7844973107651209565
+      NEW_TX Dungeon Wall Deco - Window 01 B: -187773997211470229
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
