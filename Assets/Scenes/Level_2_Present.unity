@@ -2462,6 +2462,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1659480265}
+    - targetCorrespondingSourceObject: {fileID: 1546294774153461753, guid: a0abd49047891b24d826e202a5444125,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1659480271}
   m_SourcePrefab: {fileID: 100100000, guid: a0abd49047891b24d826e202a5444125, type: 3}
 --- !u!4 &265002915 stripped
 Transform:
@@ -40544,6 +40548,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21b661dd84b811c4e87037248ae12a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1659480271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39695977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145bb25c9bd7f2f47ae1fc71545d7eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1672225954 stripped
@@ -83801,13 +83817,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1084782041}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3691bfd566187d47a2f28491f58e8a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 42b1a48b0bfe52a478373d632307741e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Level_2_Past
   targetSwitch: {fileID: 2023899643}
-  interactPrompt: {fileID: 0}
-  promptOffset: {x: 0, y: 1.5, z: 0}
+  arrowTag: Arrow
+  canBeActivatedMultipleTimes: 0
 --- !u!4 &2028001041 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6930122694965717509, guid: e82f9005837741745b6ebc1e31a0514f,

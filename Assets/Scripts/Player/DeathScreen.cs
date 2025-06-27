@@ -5,6 +5,8 @@ using TMPro;
 
 public class DeathScreen : MonoBehaviour
 {
+    public static DeathScreen Instance { get; private set; }
+
     [Header("UI Elements")]
     public GameObject deathScreenPanel;
     public Button restartButton;
@@ -16,6 +18,20 @@ public class DeathScreen : MonoBehaviour
     
     private CanvasGroup canvasGroup;
     private bool isDeathScreenActive = false;
+    
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
     
     void Start()
     {

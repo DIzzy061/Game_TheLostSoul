@@ -44,6 +44,22 @@ public class InventoryUI : MonoBehaviour
 
     private InventoryItem[] items = new InventoryItem[3];
 
+    private static InventoryUI instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
     void Start()
     {
         SelectSlot(0);

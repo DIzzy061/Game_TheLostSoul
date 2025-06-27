@@ -11,10 +11,10 @@ public class CameraFollow : MonoBehaviour
     private Vector3 targetPos;
     private Vector3 peekOffset = Vector3.zero;
 
-    void Awake()
+    private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
+        Invoke(nameof(DelayedFindTarget), 0.1f);
     }
 
     void OnDestroy()
@@ -24,6 +24,7 @@ public class CameraFollow : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        peekOffset = Vector3.zero;
         Invoke(nameof(DelayedFindTarget), 0.1f);
     }
 
@@ -70,5 +71,14 @@ public class CameraFollow : MonoBehaviour
         if (target == null) return;
         offset = transform.position - target.position;
         transform.position = target.position + offset;
+    }
+
+    public void ResetCameraState()
+    {
+        peekOffset = Vector3.zero;
+        if (target != null)
+        {
+            transform.position = target.position + offset;
+        }
     }
 }
