@@ -52,6 +52,7 @@ public class MenuButtonHandler : MonoBehaviour
             }
             else
             {
+                // Fallback если GameStateManager недоступен
                 UnityEngine.SceneManagement.SceneManager.LoadScene("Main_Menu");
             }
         }

@@ -85,10 +85,6 @@ public class SwitchLevelTransitionTrigger : MonoBehaviour
                 GameStateManager.Instance.ResetCameraState();
             SceneManager.LoadScene(sceneToLoad);
         }
-        else
-        {
-            Debug.LogWarning($"[{gameObject.name}] Scene name not assigned in SwitchLevelTransitionTrigger.");
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

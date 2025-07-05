@@ -2959,7 +2959,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 378919858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85f2e486c08ff0549950a38f6e858601, type: 3}
+  m_Script: {fileID: 11500000, guid: e1557ab9157348b4a876e7ccb6ff8d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &417548593
@@ -36806,9 +36806,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 709937779}
-        m_TargetAssemblyTypeName: DeathScreen, Assembly-CSharp
-        m_MethodName: ReturnToMainMenu
+      - m_Target: {fileID: 378919861}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
+        m_MethodName: ResetToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -83156,8 +83156,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 709937779}
-        m_TargetAssemblyTypeName: DeathScreen, Assembly-CSharp
+      - m_Target: {fileID: 378919861}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
         m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
