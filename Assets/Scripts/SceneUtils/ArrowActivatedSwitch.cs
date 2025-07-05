@@ -85,6 +85,8 @@ public class ArrowActivatedSwitch : MonoBehaviour
                 GameState.LastPlayerPosition = player.transform.position;
             }
             
+            if (GameStateManager.Instance != null)
+                GameStateManager.Instance.ResetCameraState();
             SceneManager.LoadScene(sceneToLoad);
         }
         else

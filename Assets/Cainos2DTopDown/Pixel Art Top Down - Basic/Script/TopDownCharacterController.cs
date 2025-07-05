@@ -19,30 +19,31 @@ namespace Cainos.PixelArtTopDown_Basic
         private void Update()
         {
             Vector2 dir = Vector2.zero;
+            int direction = 0; // 0 - Down, 1 - Up, 2 - Right, 3 - Left
 
             if (!freezeDirection)
             {
-                if (Input.GetKey(KeyCode.A))
-                {
-                    dir.x = -1;
-                    animator.SetInteger("Direction", 3);
-                }
-                else if (Input.GetKey(KeyCode.D))
-                {
-                    dir.x = 1;
-                    animator.SetInteger("Direction", 2);
-                }
+                // Получаем ввод
+                float horizontal = 0f;
+                float vertical = 0f;
+                if (Input.GetKey(KeyCode.A)) horizontal = -1f;
+                if (Input.GetKey(KeyCode.D)) horizontal = 1f;
+                if (Input.GetKey(KeyCode.W)) vertical = 1f;
+                if (Input.GetKey(KeyCode.S)) vertical = -1f;
 
-                if (Input.GetKey(KeyCode.W))
-                {
-                    dir.y = 1;
-                    animator.SetInteger("Direction", 1);
-                }
-                else if (Input.GetKey(KeyCode.S))
-                {
-                    dir.y = -1;
-                    animator.SetInteger("Direction", 0);
-                }
+                dir = new Vector2(horizontal, vertical);
+
+                // Определяем направление для анимации
+                if (dir.x > 0)
+                    direction = 2; // Right
+                else if (dir.x < 0)
+                    direction = 3; // Left
+                else if (dir.y > 0)
+                    direction = 1; // Up
+                else if (dir.y < 0)
+                    direction = 0; // Down
+
+                animator.SetInteger("Direction", direction);
             }
             else
             {

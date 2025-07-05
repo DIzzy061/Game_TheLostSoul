@@ -12,6 +12,8 @@ public class LevelTransitionTrigger : MonoBehaviour
         {
             GameState.PreviousSceneName = SceneManager.GetActiveScene().name;
             GameState.LastPlayerPosition = other.transform.position;
+            if (GameStateManager.Instance != null)
+                GameStateManager.Instance.ResetCameraState();
             SceneManager.LoadScene(nextSceneName);
         }
     }

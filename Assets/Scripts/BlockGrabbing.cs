@@ -7,16 +7,15 @@ public class BlockGrabbing : MonoBehaviour
 {
     public Transform grabPoint;
     public float grabRange = 1f;
-    public float grabOffset = 0.1f;
+    public float grabOffsetX = 0.5f;
+    public float grabOffsetY = 0.3f;
     public LayerMask grabbableLayer;
-    public float directionThreshold = 0.5f;
 
     public float normalSpeed = 3f;
     public float grabSpeed = 1.5f;
 
     private GameObject grabbedBlock;
     private bool isGrabbing = false;
-    private Vector2 inputDirection = Vector2.right;
 
     private Rigidbody2D rb;
     private TopDownCharacterController playerMovement;
@@ -29,8 +28,6 @@ public class BlockGrabbing : MonoBehaviour
 
     void Update()
     {
-        UpdateInputDirection();
-
         if (GameInput.Instance.PlayerInputActions.Player.Interact.triggered)
         {
             if (!isGrabbing)
@@ -47,43 +44,49 @@ public class BlockGrabbing : MonoBehaviour
         UpdatePlayerSpeed();
     }
 
-    void UpdateInputDirection()
-    {
-        if (isGrabbing) return;
-
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-
-        Vector2 newDirection = new Vector2(h, v).normalized;
-        if (newDirection != Vector2.zero)
-        {
-            inputDirection = newDirection;
-        }
-    }
-
     void TryGrab()
     {
         float currentGrabRange = grabRange;
-        float grabDistance = currentGrabRange + grabOffset;
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, currentGrabRange, grabbableLayer);
 
+        float minDist = float.MaxValue;
+        GameObject nearestBlock = null;
         foreach (var hit in hits)
         {
-            Vector2 toObject = (hit.transform.position - transform.position).normalized;
-
-            if (Vector2.Dot(inputDirection, toObject) >= directionThreshold)
+            float dist = Vector2.Distance(transform.position, hit.transform.position);
+            if (dist < minDist)
             {
-                grabbedBlock = hit.gameObject;
-
-                grabPoint.localPosition = inputDirection * grabDistance;
-
-                isGrabbing = true;
-
-                var blockRb = grabbedBlock.GetComponent<Rigidbody2D>();
-                blockRb.isKinematic = true;
-                return;
+                minDist = dist;
+                nearestBlock = hit.gameObject;
             }
+        }
+
+        if (nearestBlock != null)
+        {
+            grabbedBlock = nearestBlock;
+            Vector2 dir = (grabbedBlock.transform.position - transform.position).normalized;
+            Vector2 offset = new Vector2(
+                Mathf.Abs(dir.x) > Mathf.Abs(dir.y) ? grabOffsetX : 0,
+                Mathf.Abs(dir.y) >= Mathf.Abs(dir.x) ? grabOffsetY : 0
+            );
+            grabPoint.localPosition = new Vector2(dir.x * offset.x, dir.y * offset.y);
+
+            isGrabbing = true;
+
+            if (playerMovement != null)
+            {
+                playerMovement.freezeDirection = true;
+                int direction = 0;
+                if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+                    direction = dir.x > 0 ? 2 : 3;
+                else
+                    direction = dir.y > 0 ? 1 : 0;
+                playerMovement.GetComponent<Animator>().SetInteger("Direction", direction);
+            }
+
+            var blockRb = grabbedBlock.GetComponent<Rigidbody2D>();
+            blockRb.isKinematic = true;
         }
     }
 
@@ -96,6 +99,11 @@ public class BlockGrabbing : MonoBehaviour
 
         grabbedBlock = null;
         isGrabbing = false;
+
+        if (playerMovement != null)
+        {
+            playerMovement.freezeDirection = false;
+        }
     }
 
     void UpdatePlayerSpeed()
@@ -103,7 +111,6 @@ public class BlockGrabbing : MonoBehaviour
         if (playerMovement != null)
         {
             playerMovement.speed = isGrabbing ? grabSpeed : normalSpeed;
-            playerMovement.freezeDirection = isGrabbing;
         }
     }
 

@@ -13,6 +13,8 @@ public class CameraFollow : MonoBehaviour
 
     private void Awake()
     {
+        peekOffset = Vector3.zero; // Сбрасываем peek при создании
+        Debug.Log("CameraFollow: Awake вызван, peekOffset сброшен");
         SceneManager.sceneLoaded += OnSceneLoaded;
         Invoke(nameof(DelayedFindTarget), 0.1f);
     }
@@ -20,11 +22,14 @@ public class CameraFollow : MonoBehaviour
     void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        peekOffset = Vector3.zero;
+        Debug.Log("CameraFollow: Объект уничтожен, peekOffset сброшен");
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         peekOffset = Vector3.zero;
+        Debug.Log("CameraFollow: Сцена загружена, peekOffset сброшен");
         Invoke(nameof(DelayedFindTarget), 0.1f);
     }
 
