@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class SwitchInteractTrigger : MonoBehaviour
 {
     [Header("Main")]
-    public Switch targetSwitch; // Перетащите сюда основной объект рычага
+    public Switch targetSwitch;
 
     [Header("Visuals")]
     public GameObject interactPrompt;
@@ -17,16 +17,13 @@ public class SwitchInteractTrigger : MonoBehaviour
 
     private void Awake()
     {
-        // Автопоиск если забыли назначить
         if (targetSwitch == null)
             targetSwitch = GetComponentInParent<Switch>();
 
-        // Настройка коллайдера
         var col = GetComponent<BoxCollider2D>();
         col.isTrigger = true;
         col.size = new Vector2(1.5f, 2f);
 
-        // Поиск PlayerInput на игроке
         playerInput = GameObject.FindWithTag("Player")?.GetComponent<PlayerInput>();
 
         if (interactPrompt)
@@ -35,14 +32,12 @@ public class SwitchInteractTrigger : MonoBehaviour
 
     private void Update()
     {
-        // Два варианта на случай проблем с Input System
         if (playerInRange && (Input.GetKeyDown(KeyCode.E) ||
             (playerInput?.actions["Interact"]?.triggered ?? false)))
         {
             ToggleSwitch();
         }
 
-        // Обновляем позицию подсказки
         if (interactPrompt && interactPrompt.activeSelf)
             interactPrompt.transform.position =
                 Camera.main.WorldToScreenPoint(transform.position + promptOffset);

@@ -8,7 +8,7 @@ public class ArrowActivatedSwitch : MonoBehaviour
     public Cainos.PixelArtPlatformer_Dungeon.Switch targetSwitch;
     
     [Header("Arrow Settings")]
-    public string arrowTag = "Arrow"; // Тег стрелы
+    public string arrowTag = "Arrow";
     public bool canBeActivatedMultipleTimes = false;
     
     private bool isActivated = false;
@@ -25,13 +25,11 @@ public class ArrowActivatedSwitch : MonoBehaviour
     {
         Debug.Log($"[{gameObject.name}] OnTriggerEnter2D вызван с объектом: {other.name}, тег: {other.tag}");
         
-        // Проверяем, что это стрела и кнопка еще не активирована
         if (other.CompareTag(arrowTag) && (!isActivated || canBeActivatedMultipleTimes))
         {
             Debug.Log($"[{gameObject.name}] Стрела попала в кнопку!");
             ActivateSwitch();
             
-            // Уничтожаем стрелу
             Destroy(other.gameObject);
         }
         else
@@ -46,19 +44,16 @@ public class ArrowActivatedSwitch : MonoBehaviour
         
         isActivated = true;
         
-        // Активируем переключатель
         if (targetSwitch != null)
         {
             Debug.Log($"[{gameObject.name}] Активируем TargetSwitch");
             targetSwitch.IsOn = true;
         }
 
-        // Загружаем сцену
         if (!string.IsNullOrEmpty(sceneToLoad))
         {
             Debug.Log($"[{gameObject.name}] Загружаем сцену: {sceneToLoad}");
             
-            // Проверяем, существует ли сцена
             bool sceneExists = false;
             for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
             {
@@ -77,7 +72,6 @@ public class ArrowActivatedSwitch : MonoBehaviour
                 return;
             }
             
-            // Сохраняем данные перед переходом
             GameState.PreviousSceneName = SceneManager.GetActiveScene().name;
             GameObject player = GameObject.FindWithTag("Player");
             if (player != null)
